@@ -6,13 +6,13 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
   let { dl_link, thumb, title, filesize, filesizeF} = await ytv(args[0])
   let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
   conn.sendFile(m.chat, thumb, 'thumbnail.jpg', `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
-*${isLimit ? 'Pakai ': ''}Link:* ${dl_link}
+*𝗧𝗶𝘁𝘂𝗹𝗼:* ${title}
+*𝐏𝐞𝐬𝐨:* ${filesizeF}
+*${isLimit ? 'Pakai ': ''}
 `.trim(), m)
   if (!isLimit) conn.sendFile(m.chat, dl_link, 'video.mp4', `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
+*𝗧𝗶𝘁𝘂𝗹𝗼:* ${title}
+*𝐏𝐞𝐬𝐨:* ${filesizeF}
 `.trim(), m)
 }
 handler.help = ['mp4','v',''].map(v => 'yt' + v + ' <url>')
@@ -87,7 +87,7 @@ function ytv(url) {
                             })
                         }).catch(reject)
                 }).catch(reject)
-        } else reject('URL INVALID')
+        } else reject('𝗨𝗥𝗟 𝗶𝗻𝘃𝗮𝗹𝗶𝗱𝗼')
     })
 }
 
